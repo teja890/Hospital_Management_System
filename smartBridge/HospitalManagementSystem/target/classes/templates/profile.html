@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="pscript.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Hospital Management System</h1>
+    <nav>
+      <ul>
+        <li><a href="doctors.html">View Doctors</a></li>
+        <li><a href="book-doctor.html">Book Doctors</a></li>
+        <li><a href="manage-bookings.html">Manage Bookings</a></li>
+        <li><a href="viewprofile.html">View Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <h2>My Profile</h2>
+    <div id="profile-details"></div>
+    <div id="profile-edit" style="display: none;">
+      <h3>Edit Profile</h3>
+      <form id="edit-profile-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="frequent-flyer">Frequent Flyer Number</label>
+          <input type="text" id="frequent-flyer" name="frequent-flyer">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn-primary">Save</button>
+          <button type="button" class="btn-secondary" id="cancel-edit">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  
+  <footer>
+    &copy; 2023 Hospital Management System. All rights reserved.
+  </footer>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doctor Management</title>
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  h2 {
+    margin-top: 20px;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"] {
+    width: 300px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+  }
+  
+  input[type="submit"] {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+  </style>
+  
+</head>
+<body>
+  <h1>Doctor Management</h1>
+  <h2>Add Doctor</h2>
+<form id="addDoctorForm">
+  <label for="doctorName">Doctor Name:</label>
+  <input type="text" id="doctorName" name="doctorName" required>
+
+  <label for="specialization">Specialization:</label>
+  <input type="text" id="specialization" name="specialization" required>
+
+  <input type="submit" value="Add Doctor">
+</form>
+  
+  <h2>Doctor List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Doctor Name</th>
+        <th>Specialization</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td>Dr. John Doe</td>
+        <td> Cardiology</td>
+        <td><button>Delete</button></td>
+      </tr>
+      <tr>
+        <td>Dr. Jane Smith</td>
+        <td>Pediatrics</td>
+        <td><button>Delete</button></td>
+      </tr>
+      <tr>
+        <td>Dr. Mark Johnson</td>
+        <td>Dermatology</td>
+        <td><button>Delete</button></td>
+      </tr>
+    </thead>
+    <tbody id="doctorTable">
+    </tbody>
+  </table>
+</body>
+<script>
+  document.getElementById("addDoctorForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
+    var doctorName = document.getElementById("doctorName").value;
+    var specialization = document.getElementById("specialization").value;
+
+    // Create a new row in the doctor list table
+    var newRow = document.createElement("tr");
+    var nameCell = document.createElement("td");
+    var specializationCell = document.createElement("td");
+    var actionCell = document.createElement("td");
+
+    nameCell.textContent = doctorName;
+    specializationCell.textContent = specialization;
+    actionCell.innerHTML = '<button>Delete</button>'; // Add a delete button or any other action you want
+
+    newRow.appendChild(nameCell);
+    newRow.appendChild(specializationCell);
+    newRow.appendChild(actionCell);
+
+    // Add event listener to the delete button
+    actionCell.querySelector("button").addEventListener("click", function() {
+      // Remove the parent row when delete button is clicked
+      newRow.remove();
+    });
+
+    document.getElementById("doctorTable").appendChild(newRow);
+
+    // Clear the form inputs after adding a doctor
+    document.getElementById("doctorName").value = "";
+    document.getElementById("specialization").value = "";
+  });
+</script>
+
+</html>

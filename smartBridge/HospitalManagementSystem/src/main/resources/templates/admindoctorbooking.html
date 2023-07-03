@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="script.js" defer></script>
+  <script src="logoutjs.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Hospital Management System</h1>
+    <nav>
+      <ul>
+        <li><a href="doctors.html">View Doctors</a></li>
+        <li><a href="book-doctor.html">Book Doctors</a></li>
+        
+        <li><a href="home.html">logout</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <h2>Book Doctor</h2>
+    <input type="text" id="search-input" placeholder="Search by doctor name">
+    
+    <ul id="doctor-list">
+      <!-- Doctors will be added dynamically here -->
+    </ul>
+    
+    <form id="booking-form">
+      <label for="doctor-name">Doctor Name:</label>
+      <input type="text" id="doctor-name" placeholder="Enter doctor name" required>
+      
+      <label for="booking-date">Date:</label>
+      <input type="date" id="booking-date" required>
+      
+      <label for="booking-time">Time:</label>
+      <input type="time" id="booking-time" required>
+      
+      <label for="patient-name">Patient Name:</label>
+      <input type="text" id="patient-name" placeholder="Enter patient name" required>
+      
+      <button type="submit">Book Appointment</button>
+    </form>
+
+    <button onclick="location.href='manage-bookings.html'">Manage Bookings</button>
+  </main>
+  
+  <footer>
+    &copy; 2023 Hospital Management System. All rights reserved.
+  </footer>
+</body>
+</html>

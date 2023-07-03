@@ -1,0 +1,123 @@
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manage Appointments</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Manage Appointments</h1>
+  </header>
+
+  <main>
+    <h2>Appointments</h2>
+
+    <div id="booking-list">
+      <div class="booking-card">
+        <div class="booking-details">
+          <h3>Appointment with John Doe</h3>
+          <p>Patient Name : sreekar</p>
+          <p>Date: July 4, 2023</p>
+          <p>Time: 10:00 AM</p>
+          <p>Status: Scheduled</p>
+        </div>
+        <div class="booking-actions">
+          <button class="btn-primary">Reschedule</button>
+          <button class="btn-cancel">Cancel</button>
+          <button class="btn-primary">Mark as Completed</button>
+        </div>
+        <div class="patient-info">
+          <h4>Patient Information</h4>
+          <p>Medical History: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>Previous Diagnoses: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>Treatment Plans: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+
+      <div class="booking-card">
+        <div class="booking-details">
+          <h3>Appointment with Jane Smith</h3>
+          <p>Patient name : vamsi</p>
+          <p>Date: July 4, 2023</p>
+          <p>Time: 2:30 PM</p>
+          <p>Status: Scheduled</p>
+        </div>
+        <div class="booking-actions">
+          <button class="btn-primary">Reschedule</button>
+          <button class="btn-cancel">Cancel</button>
+          <button class="btn-primary">Mark as Completed</button>
+        </div>
+        <div class="patient-info">
+          <h4>Patient Information</h4>
+          <p>Medical History: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>Previous Diagnoses: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>Treatment Plans: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+
+      <!-- Add more appointment cards as needed -->
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Your Clinic Name. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </footer>
+</body>
+<script>
+  // Get all the cancel buttons
+const cancelButtons = document.querySelectorAll('.booking-card .booking-actions .btn-cancel');
+
+// Add click event listeners to each cancel button
+cancelButtons.forEach((button) => {
+  button.addEventListener('click', cancelAppointment);
+});
+
+// Cancel appointment function
+function cancelAppointment(event) {
+  const bookingCard = event.target.closest('.booking-card');
+  bookingCard.classList.add('cancelled');
+  const statusText = bookingCard.querySelector('.booking-details p:nth-child(4)');
+  statusText.textContent = 'Status: Cancelled';
+}
+
+// Get all the reschedule buttons
+const rescheduleButtons = document.querySelectorAll('.booking-card .booking-actions .btn-primary:nth-of-type(1)');
+
+// Add click event listeners to each reschedule button
+rescheduleButtons.forEach((button) => {
+  button.addEventListener('click', rescheduleAppointment);
+});
+
+// Reschedule appointment function
+function rescheduleAppointment(event) {
+  const bookingCard = event.target.closest('.booking-card');
+  const dateText = bookingCard.querySelector('.booking-details p:nth-child(2)');
+  const timeText = bookingCard.querySelector('.booking-details p:nth-child(3)');
+  const newDate = prompt('Enter the new date for the appointment (e.g., July 15, 2023):');
+  const newTime = prompt('Enter the new time for the appointment (e.g., 10:00 AM):');
+  if (newDate && newTime) {
+    dateText.textContent = `Date: ${newDate}`;
+    timeText.textContent = `Time: ${newTime}`;
+  }
+}
+
+// Get all the mark as completed buttons
+const markCompletedButtons = document.querySelectorAll('.booking-card .booking-actions .btn-primary:nth-of-type(3)');
+
+// Add click event listeners to each mark as completed button
+markCompletedButtons.forEach((button) => {
+  button.addEventListener('click', markAsCompleted);
+});
+
+// Mark appointment as completed function
+function markAsCompleted(event) {
+  const bookingCard = event.target.closest('.booking-card');
+  const statusText = bookingCard.querySelector('.booking-details p:nth-child(4)');
+  statusText.textContent = 'Status: Completed';
+}
+
+
+</script>
+</html>
